@@ -217,6 +217,17 @@
   .galeria-o .foto:hover{transform:scale(1.02);box-shadow:var(--shadow-md);}
   .galeria-o .foto:hover::after{opacity:1;}
   .galeria-o .foto:first-child{grid-row:span 2;}
+  .galeria-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;
+  }
+  .zdjecie-galerii{
+    display:block;width:100%;aspect-ratio:4/3;
+    border:0;border-radius:var(--radius-lg);
+    background:var(--sage) center/cover no-repeat;
+    cursor:pointer;transition:transform .35s,box-shadow .35s;
+  }
+  .zdjecie-galerii:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+  .zdjecie-galerii:focus-visible{outline:3px solid var(--copper);outline-offset:3px;}
 
   .udogodnienia-pro{background:var(--sand);}
   .udo-kategorie{
@@ -273,6 +284,7 @@
   @media(max-width:780px){
     .udo-kategorie{grid-template-columns:1fr;gap:2rem;}
     .udo-stopka{grid-template-columns:repeat(2,1fr);gap:2rem;}
+    .galeria-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;}
   }
 
   .atrakcje-pro{background:var(--cream);}
@@ -486,6 +498,7 @@
     .hero h1{font-size:3rem;}
     .karta-cena{padding:1.6rem 1.4rem;}
     .opinia{padding:1.6rem 1.4rem;}
+    .zdjecie-galerii{aspect-ratio:1/1;}
   }
 </style>
 </head>
@@ -496,6 +509,7 @@
   <button class="hamburger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
   <ul id="menu">
     <li><a href="#o-domku">O domku</a></li>
+    <li><a href="#galeria">Galeria</a></li>
     <li><a href="#udogodnienia">Udogodnienia</a></li>
     <li><a href="#cennik">Cennik</a></li>
     <li><a href="#aktywnosci">Atrakcje</a></li>
@@ -547,6 +561,24 @@
         <div class="foto" style="background-image:url('https://photos.slowhop-static.net/photos/415615/sell_item/1024/79e497b29914250c9bdfa0949970ef85-68cbe3cc03185.webp')" onclick="otworzLightbox(this)"></div>
         <div class="foto" style="background-image:url('https://photos.slowhop-static.net/photos/415615/sell_item/1024/7eb72c92a7c27e65d900e1133af9d0ec-68cbe3c4932a3.webp')" onclick="otworzLightbox(this)"></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="section-alt">
+  <div class="container">
+    <div class="reveal center">
+      <span class="eyebrow">Zajrzyj do środka</span>
+      <h2 class="tytul center">Galeria zdjęć</h2>
+      <p class="podtytul center">Zobacz, jak wygląda Leonówka i jej otoczenie. Kliknij zdjęcie, aby wyświetlić je w pełnym rozmiarze.</p>
+    </div>
+    <div class="galeria-grid reveal">
+      <button type="button" class="zdjecie-galerii" style="background-image:url('https://a0.muscache.com/im/pictures/hosting/Hosting-897011916565703026/original/67699beb-dacb-4a9e-bccc-766ab37502a6.jpeg?im_w=1200&amp;quality=80&amp;auto=webp')" aria-label="Otwórz zdjęcie Leonówki 1" onclick="otworzLightbox(this)"></button>
+      <button type="button" class="zdjecie-galerii" style="background-image:url('https://a0.muscache.com/im/pictures/hosting/Hosting-897011916565703026/original/4635340e-cdf6-4ec4-b04e-18f5df984d98.jpeg?im_w=1200&amp;quality=80&amp;auto=webp')" aria-label="Otwórz zdjęcie Leonówki 2" onclick="otworzLightbox(this)"></button>
+      <button type="button" class="zdjecie-galerii" style="background-image:url('https://a0.muscache.com/im/pictures/hosting/Hosting-897011916565703026/original/2cd73838-8c8b-47ce-af44-af4e6cb89ef5.jpeg?im_w=1200&amp;quality=80&amp;auto=webp')" aria-label="Otwórz zdjęcie Leonówki 3" onclick="otworzLightbox(this)"></button>
+      <button type="button" class="zdjecie-galerii" style="background-image:url('https://a0.muscache.com/im/pictures/hosting/Hosting-897011916565703026/original/fae59772-a73f-4924-8293-4dcdb76e5958.jpeg?im_w=1200&amp;quality=80&amp;auto=webp')" aria-label="Otwórz zdjęcie Leonówki 4" onclick="otworzLightbox(this)"></button>
+      <button type="button" class="zdjecie-galerii" style="background-image:url('https://a0.muscache.com/im/pictures/hosting/Hosting-897011916565703026/original/b7e0f384-9f05-4b0f-9239-078d94ec5f0c.jpeg?im_w=1200&amp;quality=80&amp;auto=webp')" aria-label="Otwórz zdjęcie Leonówki 5" onclick="otworzLightbox(this)"></button>
+      <button type="button" class="zdjecie-galerii" style="background-image:url('https://a0.muscache.com/im/pictures/hosting/Hosting-897011916565703026/original/fc98cd72-109e-4eb3-a46e-3d93a1c0cd71.jpeg?im_w=1200&amp;quality=80&amp;auto=webp')" aria-label="Otwórz zdjęcie Leonówki 6" onclick="otworzLightbox(this)"></button>
     </div>
   </div>
 </section>
