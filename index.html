@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonówka — domek nad Wkrą | Mazowsze</title>
+<meta name="description" content="Leonówka — wyjątkowy domek do wynajęcia nad rzeką Wkrą. Sauna, balia z jacuzzi, kominek i cisza mazowieckiej wsi. 70 km od Warszawy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1e3a2f;
+    --forest-deep:#14261f;
+    --sage:#5a7a63;
+    --sage-light:#a8bfae;
+    --cream:#faf7f2;
+    --sand:#e8e0d1;
+    --sand-dark:#d4c8b3;
+    --wood:#7d5a3d;
+    --copper:#b87333;
+    --copper-light:#d4915a;
+    --ink:#1a1a1a;
+    --ink-soft:#4a4a4a;
+    --muted:#7a7a7a;
+    --white:#ffffff;
+    --shadow-sm:0 2px 8px rgba(20,38,31,.06);
+    --shadow-md:0 8px 24px rgba(20,38,31,.08);
+    --shadow-lg:0 20px 50px rgba(20,38,31,.12);
+    --radius:4px;
+    --radius-lg:8px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+    font-weight:400;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.15;letter-spacing:.005em;color:var(--forest);}
+  img{display:block;max-width:100%;}
+  a{color:inherit;}
+
+  .eyebrow{
+    display:inline-block;font-family:'Inter',sans-serif;
+    font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);margin-bottom:1rem;
+  }
+  .tytul{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;position:relative;}
+  .tytul::after{
+    content:'';display:block;width:48px;height:2px;background:var(--copper);
+    margin-top:1.2rem;
+  }
+  .tytul.center::after{margin-left:auto;margin-right:auto;}
+  .podtytul{font-size:1.05rem;color:var(--ink-soft);max-width:680px;margin-bottom:3rem;font-weight:300;line-height:1.8;}
+  .center{text-align:center;}
+  .center .podtytul{margin-left:auto;margin-right:auto;}
+
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    padding:1.4rem 3rem;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:background .4s ease,padding .4s ease,box-shadow .4s ease;
+    color:#fff;
+  }
+  nav.scrolled{
+    background:rgba(20,38,31,.96);
+    backdrop-filter:blur(12px);
+    padding:.9rem 3rem;
+    box-shadow:0 4px 30px rgba(0,0,0,.18);
+  }
+  nav .logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.6rem;font-weight:600;letter-spacing:.04em;
+    display:flex;align-items:baseline;gap:.5rem;
+  }
+  nav .logo em{font-style:normal;font-size:.7rem;font-family:'Inter',sans-serif;letter-spacing:.3em;text-transform:uppercase;opacity:.7;font-weight:500;}
+  nav ul{display:flex;gap:2rem;list-style:none;align-items:center;}
+  nav a{
+    text-decoration:none;font-size:.82rem;font-weight:500;
+    letter-spacing:.08em;text-transform:uppercase;
+    transition:color .25s;position:relative;
+  }
+  nav ul a::after{
+    content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
+    background:var(--copper);transition:width .3s;
+  }
+  nav ul a:hover::after{width:100%;}
+  nav ul a:hover{color:var(--copper-light);}
+  .nav-cta{
+    background:var(--copper);color:#fff!important;padding:.6rem 1.4rem;
+    border-radius:2px;font-size:.75rem!important;letter-spacing:.12em!important;
+    transition:background .25s,transform .25s;
+  }
+  .nav-cta:hover{background:var(--copper-light);transform:translateY(-1px);}
+  .nav-cta::after{display:none!important;}
+  .hamburger{display:none;font-size:1.5rem;cursor:pointer;background:none;border:none;color:#fff;}
+  @media(max-width:900px){
+    nav{padding:1rem 1.5rem;}
+    nav.scrolled{padding:.8rem 1.5rem;}
+    nav ul{
+      display:none;flex-direction:column;align-items:flex-start;
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--forest-deep);padding:1.5rem 2rem;gap:1.2rem;
+    }
+    nav ul.open{display:flex;}
+    nav ul.open li{width:100%;}
+    nav ul a{font-size:.9rem;}
+    .hamburger{display:block;}
+  }
+
+  header.hero{
+    position:relative;min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;color:#fff;padding:6rem 2rem 4rem;
+    background:
+      linear-gradient(180deg,rgba(20,38,31,.45) 0%,rgba(20,38,31,.35) 50%,rgba(20,38,31,.75) 100%),
+      url('https://photos.slowhop-static.net/photos/261750/product/1024/1b4227c6fe4c968b0ef6b0952f9988b1-68e624fecc274.webp') center/cover no-repeat,
+      var(--forest);
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at center,transparent 30%,rgba(20,38,31,.4) 100%);
+    pointer-events:none;
+  }
+  .hero-content{position:relative;max-width:900px;}
+  .hero .badge{
+    display:inline-flex;align-items:center;gap:.6rem;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(10px);
+    padding:.5rem 1.2rem;border-radius:100px;
+    font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+    margin-bottom:2rem;
+  }
+  .hero .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--copper-light);box-shadow:0 0 12px var(--copper-light);}
+  .hero h1{
+    font-size:clamp(3.5rem,9vw,7rem);
+    font-weight:400;color:#fff;margin-bottom:1.2rem;
+    letter-spacing:-.01em;line-height:1;
+    text-shadow:0 2px 30px rgba(0,0,0,.3);
+  }
+  .hero .tagline{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:400;
+    font-style:italic;opacity:.92;margin-bottom:2.2rem;
+    max-width:640px;margin-left:auto;margin-right:auto;line-height:1.5;
+  }
+  .hero .ocena{
+    display:inline-flex;align-items:center;gap:.9rem;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(10px);padding:.55rem 1.3rem;border-radius:100px;
+    margin-bottom:2.5rem;font-size:.85rem;letter-spacing:.02em;
+  }
+  .hero .ocena .stars{color:var(--copper-light);letter-spacing:2px;}
+  .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    padding:1rem 2.2rem;border-radius:2px;text-decoration:none;
+    font-family:'Inter',sans-serif;font-weight:500;font-size:.8rem;
+    letter-spacing:.15em;text-transform:uppercase;
+    transition:all .3s ease;cursor:pointer;border:none;
+  }
+  .btn-primary{background:var(--copper);color:#fff;}
+  .btn-primary:hover{background:var(--copper-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(184,115,51,.35);}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);}
+  .btn-ghost:hover{background:#fff;color:var(--forest);border-color:#fff;}
+  .scroll-hint{
+    position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+    color:#fff;opacity:.6;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:.6rem;
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  .scroll-hint::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,#fff,transparent);}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+
+  section{padding:7rem 2rem;position:relative;}
+  .container{max-width:1180px;margin:0 auto;}
+  .section-alt{background:var(--white);}
+  .section-sand{background:var(--sand);}
+
+  .o-domku{display:grid;grid-template-columns:1.05fr 1fr;gap:5rem;align-items:center;}
+  .o-domku .tekst p{margin-bottom:1.2rem;color:var(--ink-soft);font-weight:300;font-size:1rem;line-height:1.85;}
+  .o-domku .tekst p:first-of-type::first-letter{
+    font-family:'Cormorant Garamond',serif;font-size:3.4rem;float:left;
+    line-height:.9;padding:.1rem .5rem 0 0;color:var(--copper);font-weight:600;
+  }
+  .cechy{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;}
+  .cecha{
+    display:inline-flex;align-items:center;gap:.4rem;
+    background:var(--sand);color:var(--forest);
+    padding:.5rem 1rem;border-radius:100px;
+    font-size:.75rem;font-weight:500;letter-spacing:.04em;
+    border:1px solid var(--sand-dark);
+  }
+  .cecha::before{content:'◆';color:var(--copper);font-size:.6rem;}
+  .galeria-o{
+    display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+    gap:.8rem;height:520px;
+  }
+  .galeria-o .foto{
+    border-radius:var(--radius-lg);overflow:hidden;
+    background:var(--sage) center/cover no-repeat;
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.6);font-size:.75rem;text-align:center;padding:.5rem;
+    cursor:pointer;transition:transform .5s ease,box-shadow .3s;
+    position:relative;
+  }
+  .galeria-o .foto::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(20,38,31,0),rgba(20,38,31,.15));
+    transition:opacity .3s;opacity:0;
+  }
+  .galeria-o .foto:hover{transform:scale(1.02);box-shadow:var(--shadow-md);}
+  .galeria-o .foto:hover::after{opacity:1;}
+  .galeria-o .foto:first-child{grid-row:span 2;}
+
+  .udogodnienia-pro{background:var(--sand);}
+  .udo-kategorie{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:3rem 4rem;
+    margin-top:3.5rem;
+  }
+  .udo-kat{
+    border-top:1px solid var(--sand-dark);padding-top:2rem;
+  }
+  .udo-head{display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:1.6rem;}
+  .udo-num{
+    font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;
+    color:var(--copper);line-height:1;flex-shrink:0;
+  }
+  .udo-head h3{
+    font-size:1.5rem;color:var(--forest);margin-bottom:.2rem;font-weight:600;
+  }
+  .udo-sub{
+    font-size:.8rem;color:var(--muted);letter-spacing:.08em;
+    text-transform:uppercase;font-weight:400;
+  }
+  .udo-lista{list-style:none;}
+  .udo-lista li{
+    display:flex;align-items:center;gap:.9rem;
+    padding:.85rem 0;font-size:.92rem;color:var(--ink-soft);
+    border-bottom:1px solid rgba(212,200,179,.5);
+    transition:padding-left .25s,color .25s;
+  }
+  .udo-lista li:last-child{border-bottom:none;}
+  .udo-lista li:hover{padding-left:.4rem;color:var(--forest);}
+  .udo-lista svg{
+    width:20px;height:20px;flex-shrink:0;color:var(--sage);
+    transition:color .25s;
+  }
+  .udo-lista li:hover svg{color:var(--copper);}
+  .udo-lista .tag{
+    margin-left:auto;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+    padding:.2rem .6rem;border-radius:100px;background:var(--forest);color:#fff;
+    font-weight:600;white-space:nowrap;
+  }
+  .udo-lista .tag-plat{background:var(--copper);}
+
+  .udo-stopka{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+    margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--sand-dark);
+    text-align:center;
+  }
+  .udo-stopka-item span{
+    display:block;font-family:'Cormorant Garamond',serif;font-size:1.3rem;
+    color:var(--forest);font-weight:600;margin-bottom:.2rem;
+  }
+  .udo-stopka-item p{font-size:.8rem;color:var(--muted);font-weight:300;}
+
+  @media(max-width:780px){
+    .udo-kategorie{grid-template-columns:1fr;gap:2rem;}
+    .udo-stopka{grid-template-columns:repeat(2,1fr);gap:2rem;}
+  }
+
+  .atrakcje-pro{background:var(--cream);}
+  .atrakcje-head{
+    display:grid;grid-template-columns:1fr 1fr;gap:3rem;
+    align-items:end;margin-bottom:3.5rem;
+    padding-bottom:2rem;border-bottom:1px solid var(--sand-dark);
+  }
+  .atrakcje-lead{
+    font-size:1.05rem;color:var(--ink-soft);font-weight:300;line-height:1.8;
+    max-width:440px;
+  }
+  .atrakcje-lista{display:flex;flex-direction:column;}
+  .atrakcja{
+    display:grid;grid-template-columns:auto 1fr auto;gap:2.2rem;
+    align-items:center;padding:2.2rem 0;
+    border-bottom:1px solid rgba(212,200,179,.6);
+    transition:background .3s,padding-left .3s;
+    position:relative;
+  }
+  .atrakcja:last-child{border-bottom:none;}
+  .atrakcja::before{
+    content:'';position:absolute;left:-2rem;top:0;bottom:0;width:2px;
+    background:var(--copper);transform:scaleY(0);transform-origin:center;
+    transition:transform .4s ease;
+  }
+  .atrakcja:hover::before{transform:scaleY(1);}
+  .atrakcja:hover{padding-left:1rem;}
+  .atrakcja-num{
+    font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:500;
+    color:var(--copper);line-height:1;min-width:2.5rem;
+  }
+  .atrakcja-tresc h3{
+    font-size:1.55rem;color:var(--forest);margin-bottom:.5rem;font-weight:600;
+    transition:color .25s;
+  }
+  .atrakcja:hover .atrakcja-tresc h3{color:var(--copper);}
+  .atrakcja-tresc p{
+    font-size:.94rem;color:var(--ink-soft);font-weight:300;line-height:1.75;
+    max-width:620px;margin-bottom:.8rem;
+  }
+  .atrakcja-tagi{display:flex;gap:.5rem;flex-wrap:wrap;}
+  .atrakcja-tagi span{
+    font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+    padding:.3rem .7rem;border-radius:100px;
+    border:1px solid var(--sand-dark);color:var(--muted);font-weight:500;
+  }
+  .atrakcja-ico{
+    font-size:2.4rem;filter:grayscale(.3);opacity:.85;
+    transition:transform .35s,opacity .35s;
+  }
+  .atrakcja:hover .atrakcja-ico{transform:scale(1.15) rotate(-5deg);opacity:1;}
+
+  @media(max-width:780px){
+    .atrakcje-head{grid-template-columns:1fr;gap:1.5rem;}
+    .atrakcja{grid-template-columns:auto 1fr;gap:1.4rem;padding:1.8rem 0;}
+    .atrakcja-ico{display:none;}
+    .atrakcja-num{font-size:1.8rem;min-width:auto;}
+    .atrakcja-tresc h3{font-size:1.3rem;}
+  }
+
+  .cennik-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1.5rem;margin-top:3rem;
+  }
+  .karta-cena{
+    background:var(--white);border:1px solid var(--sand-dark);
+    padding:2rem 1.8rem;border-radius:var(--radius-lg);
+    transition:transform .3s,box-shadow .3s,border-color .3s;
+    position:relative;overflow:hidden;
+  }
+  .karta-cena::before{
+    content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+    background:var(--copper);transform:scaleX(0);transform-origin:left;
+    transition:transform .4s ease;
+  }
+  .karta-cena:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--copper-light);}
+  .karta-cena:hover::before{transform:scaleX(1);}
+  .karta-cena h3{
+    font-size:1.3rem;margin-bottom:.8rem;font-family:'Cormorant Garamond',serif;
+    font-weight:600;color:var(--forest);
+  }
+  .karta-cena .cena{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.2rem;font-weight:600;color:var(--copper);
+    line-height:1;margin-bottom:.8rem;letter-spacing:-.01em;
+  }
+  .karta-cena .cena small{font-size:.9rem;color:var(--muted);font-weight:400;font-family:'Inter',sans-serif;letter-spacing:0;}
+  .karta-cena p{font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;}
+
+  .opinie{background:var(--forest-deep);color:#fff;}
+  .opinie .tytul{color:#fff;}
+  .opinie .podtytul{color:rgba(255,255,255,.7);}
+  .ocena-duza{display:flex;align-items:center;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.15);}
+  .ocena-duza .liczba{
+    font-family:'Cormorant Garamond',serif;
+    font-size:4.5rem;font-weight:500;line-height:.9;color:#fff;
+  }
+  .ocena-duza .gwiazdki{color:var(--copper-light);font-size:1.2rem;letter-spacing:4px;margin-top:.5rem;}
+  .ocena-duza small{color:rgba(255,255,255,.65);display:block;font-size:.85rem;line-height:1.7;max-width:480px;font-weight:300;}
+  .opinie-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+  .opinia{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+    border-radius:var(--radius-lg);padding:2rem 1.8rem;
+    position:relative;transition:background .3s,transform .3s;
+  }
+  .opinia:hover{background:rgba(255,255,255,.08);transform:translateY(-3px);}
+  .opinia::before{
+    content:'"';position:absolute;top:.6rem;right:1.4rem;
+    font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--copper);opacity:.5;line-height:1;
+  }
+  .opinia .autor{font-weight:600;font-size:.95rem;margin-bottom:.2rem;letter-spacing:.02em;}
+  .opinia .data{font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:1rem;letter-spacing:.05em;text-transform:uppercase;}
+  .opinia p{font-size:.92rem;color:rgba(255,255,255,.85);font-style:italic;font-weight:300;line-height:1.75;position:relative;z-index:1;}
+
+  .okolica-lista{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:1.2rem;margin-top:3rem;
+  }
+  .okolic-item{
+    background:var(--white);border:1px solid var(--sand-dark);
+    border-radius:var(--radius-lg);padding:1.6rem;
+    transition:transform .3s,box-shadow .3s,border-color .3s;
+  }
+  .okolic-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--copper-light);}
+  .okolic-item h4{font-size:1.15rem;margin-bottom:.5rem;color:var(--forest);font-weight:600;}
+  .okolic-item p{font-size:.87rem;color:var(--ink-soft);font-weight:300;line-height:1.7;}
+
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem;}
+  .info-box{
+    background:var(--white);border-radius:var(--radius-lg);
+    padding:2rem 1.8rem;border-top:3px solid var(--copper);
+    box-shadow:var(--shadow-sm);
+  }
+  .info-box h3{
+    font-size:1.2rem;margin-bottom:1.2rem;color:var(--forest);
+    display:flex;align-items:center;gap:.6rem;font-weight:600;
+  }
+  .info-box ul{list-style:none;}
+  .info-box li{
+    padding:.55rem 0;font-size:.88rem;font-weight:300;
+    border-bottom:1px solid var(--sand);color:var(--ink-soft);
+    display:flex;align-items:flex-start;gap:.5rem;
+  }
+  .info-box li::before{content:'—';color:var(--copper);flex-shrink:0;}
+  .info-box li:last-child{border:none;}
+
+  .cta-section{padding:7rem 2rem;}
+  .cta{
+    background:linear-gradient(135deg,var(--forest-deep) 0%,var(--forest) 60%,var(--sage) 100%);
+    color:#fff;text-align:center;border-radius:var(--radius-lg);
+    padding:5rem 3rem;max-width:1000px;margin:0 auto;
+    position:relative;overflow:hidden;
+  }
+  .cta::before{
+    content:'';position:absolute;top:-50%;right:-10%;
+    width:500px;height:500px;border-radius:50%;
+    background:radial-gradient(circle,rgba(184,115,51,.2),transparent 70%);
+    pointer-events:none;
+  }
+  .cta h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;color:#fff;position:relative;}
+  .cta p{opacity:.85;margin-bottom:2.5rem;font-weight:300;max-width:600px;margin-left:auto;margin-right:auto;position:relative;}
+  .cta .btn{margin:.3rem;position:relative;}
+  .cta .btn-light{background:#fff;color:var(--forest);}
+  .cta .btn-light:hover{background:var(--sand);transform:translateY(-2px);}
+  .cta-note{margin-top:2rem;font-size:.8rem;opacity:.7;letter-spacing:.05em;position:relative;}
+
+  footer{
+    background:var(--forest-deep);color:rgba(255,255,255,.7);
+    padding:4rem 2rem 2rem;text-align:center;font-size:.85rem;font-weight:300;
+  }
+  footer .logo-f{
+    font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff;
+    margin-bottom:.5rem;letter-spacing:.03em;font-weight:500;
+  }
+  footer .tagline-f{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-bottom:2rem;}
+  footer .links{
+    display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;
+    margin:2rem 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);
+  }
+  footer a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;transition:color .25s;}
+  footer a:hover{color:var(--copper-light);}
+  footer .copy{font-size:.75rem;opacity:.5;margin-top:1.5rem;line-height:1.7;}
+
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  .lightbox{
+    display:none;position:fixed;inset:0;background:rgba(10,20,16,.96);
+    z-index:9999;align-items:center;justify-content:center;padding:2rem;
+    opacity:0;transition:opacity .3s;
+  }
+  .lightbox.active{display:flex;opacity:1;}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:var(--radius);box-shadow:0 30px 80px rgba(0,0,0,.5);}
+  .lightbox .zamknij{
+    position:absolute;top:2rem;right:2.5rem;color:#fff;font-size:2.5rem;
+    cursor:pointer;line-height:1;opacity:.7;transition:opacity .2s,transform .2s;
+  }
+  .lightbox .zamknij:hover{opacity:1;transform:rotate(90deg);}
+
+  @media(max-width:900px){
+    section{padding:5rem 1.5rem;}
+    .o-domku{grid-template-columns:1fr;gap:3rem;}
+    .galeria-o{height:380px;}
+    .ocena-duza .liczba{font-size:3.5rem;}
+    .cta{padding:3.5rem 1.5rem;}
+    .hero{min-height:92vh;}
+    .scroll-hint{display:none;}
+  }
+  @media(max-width:500px){
+    .hero h1{font-size:3rem;}
+    .karta-cena{padding:1.6rem 1.4rem;}
+    .opinia{padding:1.6rem 1.4rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="logo">Leonówka <em>nad Wkrą</em></div>
+  <button class="hamburger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  <ul id="menu">
+    <li><a href="#o-domku">O domku</a></li>
+    <li><a href="#udogodnienia">Udogodnienia</a></li>
+    <li><a href="#cennik">Cennik</a></li>
+    <li><a href="#aktywnosci">Atrakcje</a></li>
+    <li><a href="#opinie">Opinie</a></li>
+    <li><a href="#lokalizacja">Lokalizacja</a></li>
+    <li><a href="#rezerwacja" class="nav-cta">Rezerwuj</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="badge">Mazowsze · 70 km od Warszawy</span>
+    <h1>Leonówka</h1>
+    <p class="tagline">Oaza spokoju nad rzeką Wkrą — sauna, balia z jacuzzi i cisza zakłócana jedynie kumkaniem żab.</p>
+    <div class="ocena">
+      <span class="stars">★★★★★</span>
+      <span>5,0 · 64 recenzje Airbnb · 11 ocen AlohaCamp</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#rezerwacja" class="btn btn-primary">Zarezerwuj pobyt</a>
+      <a href="#o-domku" class="btn btn-ghost">Poznaj domek</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Przewiń</div>
+</header>
+
+<section id="o-domku" class="section-alt">
+  <div class="container">
+    <div class="o-domku reveal">
+      <div class="tekst">
+        <span class="eyebrow">Wasz domek z dala od domu</span>
+        <h2 class="tytul">Kameralna chatka nad Wkrą</h2>
+        <p>Zrób sobie przerwę i zrelaksuj się w tej oazie spokoju. Kilka set metrów od meandrującej Wkry stoi Leonówka — kameralny domek idealny dla pary, choć zmieści się do 6 osób. Na mazowieckiej wsi blisko rzeki, wśród pokrytych mchem lasów.</p>
+        <p>Na parterze znajduje się salon z rozkładaną kanapą i urokliwym kominkiem oraz kuchnia wyposażona w kuchenkę, piekarnik, zmywarkę i mikrofalówkę. Na górze przestronna sypialnia z oknem, przez które można obserwować piękno mazowieckiej przyrody.</p>
+        <p>Na powitanie czeka świeża chałka, a drewna do kominka nigdy nie brakuje. Sauna sucha w cenie pobytu, balia z jacuzzi dodatkowo płatna. Jedni goście byli tu już 5 razy.</p>
+        <div class="cechy">
+          <span class="cecha">60 m²</span>
+          <span class="cecha">do 6 osób</span>
+          <span class="cecha">1 sypialnia</span>
+          <span class="cecha">Kominek</span>
+          <span class="cecha">Sauna</span>
+          <span class="cecha">Balia / Jacuzzi</span>
+          <span class="cecha">Nad rzeką</span>
+          <span class="cecha">Zwierzaki mile widziane</span>
+        </div>
+      </div>
+      <div class="galeria-o">
+        <div class="foto" style="background-image:url('https://photos.slowhop-static.net/photos/415615/product/1024/138a2e759dbf9e62ae53451c9ded1bbd-6ab6cade42a7a.webp')" onclick="otworzLightbox(this)"></div>
+        <div class="foto" style="background-image:url('https://photos.slowhop-static.net/photos/415615/sell_item/1024/79e497b29914250c9bdfa0949970ef85-68cbe3cc03185.webp')" onclick="otworzLightbox(this)"></div>
+        <div class="foto" style="background-image:url('https://photos.slowhop-static.net/photos/415615/sell_item/1024/7eb72c92a7c27e65d900e1133af9d0ec-68cbe3c4932a3.webp')" onclick="otworzLightbox(this)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="udogodnienia" class="udogodnienia-pro">
+  <div class="container">
+    <div class="reveal center">
+      <span class="eyebrow">Komfort w każdym detalu</span>
+      <h2 class="tytul center">Udogodnienia</h2>
+      <p class="podtytul center">Wszystko, czego potrzebujesz — od sauny opalanej drewnem po ekspres do świeżej kawy. Bez kompromisów.</p>
+    </div>
+
+    <div class="udo-kategorie reveal">
+      <div class="udo-kat">
+        <div class="udo-head">
+          <span class="udo-num">01</span>
+          <div>
+            <h3>Relaks &amp; wellness</h3>
+            <p class="udo-sub">Strefa, w której czas płynie inaczej</p>
+          </div>
+        </div>
+        <ul class="udo-lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-1 2-3 3-3 5a3 3 0 0 0 6 0c0-2-2-3-3-5z"/><path d="M4 21c2-4 6-6 8-6s6 2 8 6"/></svg>Sauna sucha opalana drewnem <span class="tag">w cenie</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12c3-3 6-3 9 0s6 3 9 0"/><path d="M3 17c3-3 6-3 9 0s6 3 9 0"/><path d="M3 7c3-3 6-3 9 0s6 3 9 0"/></svg>Balia z jacuzzi <span class="tag tag-plat">300 zł / pobyt</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg>Kominek z drewnem <span class="tag">w cenie</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 3v6a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-2 0-3 2-3 5s1 4 3 4v9"/></svg>Miejsce na ognisko</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M8 14c1.5 2 6.5 2 8 0"/></svg>Grill ogrodowy</li>
+        </ul>
+      </div>
+
+      <div class="udo-kat">
+        <div class="udo-head">
+          <span class="udo-num">02</span>
+          <div>
+            <h3>Kuchnia</h3>
+            <p class="udo-sub">Pełne wyposażenie jak w domu</p>
+          </div>
+        </div>
+        <ul class="udo-lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8"/></svg>Płyta kuchenna &amp; piekarnik</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10v4M12 10v4M17 10v4"/></svg>Mikrofalówka</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>Zmywarka</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/></svg>Lodówka</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 18h12V8H4z"/><path d="M16 10h3a2 2 0 0 1 0 4h-3"/><path d="M7 5v2M10 5v2"/></svg>Ekspres do kawy &amp; czajnik</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M8 12h8"/></svg>Naczynia, sztućce, garnki</li>
+        </ul>
+      </div>
+
+      <div class="udo-kat">
+        <div class="udo-head">
+          <span class="udo-num">03</span>
+          <div>
+            <h3>Wnętrze &amp; wygoda</h3>
+            <p class="udo-sub">Ciepło i spokój cztery kąty</p>
+          </div>
+        </div>
+        <ul class="udo-lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 17h18M5 17V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8"/><path d="M7 9h10"/></svg>Pościel i ręczniki</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12h16v6H4z"/><path d="M8 12V8a4 4 0 0 1 8 0v4"/></svg>Suszarka do włosów</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 8a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v3H6V8z"/><path d="M9 11v2M15 11v2"/></svg>Mydło i szampon</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M2 21h20"/></svg>Miejsce do pracy zdalnej</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12a7 7 0 0 1 14 0"/><path d="M8 12a4 4 0 0 1 8 0"/><circle cx="12" cy="12" r="1"/></svg>WiFi</li>
+        </ul>
+      </div>
+
+      <div class="udo-kat">
+        <div class="udo-head">
+          <span class="udo-num">04</span>
+          <div>
+            <h3>Na zewnątrz &amp; okolica</h3>
+            <p class="udo-sub">Natura na wyciągnięcie ręki</p>
+          </div>
+        </div>
+        <ul class="udo-lista">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M7 17l3-8h4l3 8"/></svg>Rowery <span class="tag">w cenie</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 14c4-4 6 2 9-2s5 2 9-2"/><path d="M3 19c4-4 6 2 9-2s5 2 9-2"/></svg>Kajaki &amp; deska SUP</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>Ogrodzony teren <span class="tag">prywatność</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="10" width="18" height="8" rx="1"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>Bezpłatny parking</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="8" r="3"/><path d="M5 20c0-3 3-5 6-5s6 2 6 5"/><path d="M17 8h4"/></svg>Zwierzaki mile widziane</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="udo-stopka reveal">
+      <div class="udo-stopka-item"><span>Dla rodzin</span><p>Idealne na rodzinny wyjazd</p></div>
+      <div class="udo-stopka-item"><span>Dla par</span><p>Kameralny reset we dwoje</p></div>
+      <div class="udo-stopka-item"><span>Dla aktywnych</span><p>Rowery, kajaki, szutry</p></div>
+      <div class="udo-stopka-item"><span>Workation</span><p>Miejsce do pracy zdalnej</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="aktywnosci" class="atrakcje-pro">
+  <div class="container">
+    <div class="atrakcje-head reveal">
+      <div>
+        <span class="eyebrow">Czas wolny</span>
+        <h2 class="tytul">Aktywności w okolicy</h2>
+      </div>
+      <p class="atrakcje-lead">Dla tych, którzy chcą się rozruszać, i dla tych, którzy chcą po prostu odpocząć w hamaku. Mazowiecka wieś nad Wkrą daje jedno i drugie.</p>
+    </div>
+
+    <div class="atrakcje-lista reveal">
+      <article class="atrakcja">
+        <div class="atrakcja-num">01</div>
+        <div class="atrakcja-tresc">
+          <h3>Spływy kajakowe &amp; deska SUP</h3>
+          <p>Rzeka Wkra tuż obok — meandrująca, spokojna, idealna na leniwe spływy. Kajaki i deska SUP do dyspozycji gości. Latem to najlepszy sposób, by zobaczyć Mazowsze od strony wody.</p>
+          <div class="atrakcja-tagi"><span>Kajaki</span><span>SUP</span><span>Lato</span></div>
+        </div>
+        <div class="atrakcja-ico">🛶</div>
+      </article>
+
+      <article class="atrakcja">
+        <div class="atrakcja-num">02</div>
+        <div class="atrakcja-tresc">
+          <h3>Rowery &amp; szutrowe trasy</h3>
+          <p>Bezpłatne rowery czekają na miejscu. Godzinne przejażdżki po szutrach wokół wsi robią przestrzeń w głowie — to najlepsza rekomendacja Leonówki. Trasy dla każdego poziomu.</p>
+          <div class="atrakcja-tagi"><span>Rowery w cenie</span><span>Szutry</span><span>Aktywnie</span></div>
+        </div>
+        <div class="atrakcja-ico">🚴</div>
+      </article>
+
+      <article class="atrakcja">
+        <div class="atrakcja-num">03</div>
+        <div class="atrakcja-tresc">
+          <h3>Plaża nad Wkrą</h3>
+          <p>Kilka minut spacerem — piaszczysta plaża nad rzeką. Kąpiele, pikniki, zachody słońca. W sezonie jedno z najprzyjemniejszych miejsc w okolicy.</p>
+          <div class="atrakcja-tagi"><span>Plaża</span><span>Kąpielisko</span><span>Spacery</span></div>
+        </div>
+        <div class="atrakcja-ico">🏖️</div>
+      </article>
+
+      <article class="atrakcja">
+        <div class="atrakcja-num">04</div>
+        <div class="atrakcja-tresc">
+          <h3>Grzybobranie w mchowych lasach</h3>
+          <p>Piękne, pokryte mchem lasy wokół Sochocina to raj dla grzybiarzy. Jesienią kosze pełne prawdziwków i podgrzybków — a potem kolacja przy kominku.</p>
+          <div class="atrakcja-tagi"><span>Jesień</span><span>Lasy</span><span>Dla rodzin</span></div>
+        </div>
+        <div class="atrakcja-ico">🍄</div>
+      </article>
+
+      <article class="atrakcja">
+        <div class="atrakcja-num">05</div>
+        <div class="atrakcja-tresc">
+          <h3>Wędkarstwo &amp; jazda konna</h3>
+          <p>Dla miłośników spokoju z wędką w ręku — Wkra i okoliczne łowiska. W pobliżu także stajnie oferujące jazdę konną dla początkujących i zaawansowanych.</p>
+          <div class="atrakcja-tagi"><span>Wędkarstwo</span><span>Konie</span><span>Spokój</span></div>
+        </div>
+        <div class="atrakcja-ico">🎣</div>
+      </article>
+
+      <article class="atrakcja">
+        <div class="atrakcja-num">06</div>
+        <div class="atrakcja-tresc">
+          <h3>Szlaki piesze &amp; hamak</h3>
+          <p>Niewymagające szlaki piesze wokół wsi — na spacer z psem, z dzieckiem, z książką. A jeśli wolisz zostać na miejscu: hamak, cisza i kumkanie żab.</p>
+          <div class="atrakcja-tagi"><span>Spacery</span><span>Hamak</span><span>Slow life</span></div>
+        </div>
+        <div class="atrakcja-ico">🥾</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="cennik" class="section-alt">
+  <div class="container">
+    <div class="reveal center">
+      <span class="eyebrow">Przejrzyste zasady</span>
+      <h2 class="tytul center">Cennik i dodatki</h2>
+      <p class="podtytul center">Bez ukrytych kosztów — wszystko jasne od pierwszego kliknięcia.</p>
+    </div>
+    <div class="cennik-grid reveal">
+      <div class="karta-cena">
+        <h3>Sauna sucha</h3>
+        <div class="cena">w cenie</div>
+        <p>Dostępna przez cały rok, opalana drewnem — idealna na wieczory pod gwiazdami.</p>
+      </div>
+      <div class="karta-cena">
+        <h3>Balia z jacuzzi</h3>
+        <div class="cena">300 zł <small>/ pobyt</small></div>
+        <p>Opalana drewnem, prywatna, dostępna przez cały rok. Dodatkowo płatna.</p>
+      </div>
+      <div class="karta-cena">
+        <h3>Śniadanie</h3>
+        <div class="cena">60 zł <small>/ os.</small></div>
+        <p>Domowe śniadania przygotowywane przez gospodynię Martynę.</p>
+      </div>
+      <div class="karta-cena">
+        <h3>Opłata za zwierzaki</h3>
+        <div class="cena">100 zł <small>/ pobyt</small></div>
+        <p>Maksymalnie 2 zwierzaki w jednej rezerwacji. Psy i koty mile widziane.</p>
+      </div>
+      <div class="karta-cena">
+        <h3>Rowery i deska SUP</h3>
+        <div class="cena">w cenie</div>
+        <p>Do dyspozycji gości bez dodatkowych opłat — na spacery i przejażdżki.</p>
+      </div>
+      <div class="karta-cena">
+        <h3>Drewno do kominka i ogniska</h3>
+        <div class="cena">w cenie</div>
+        <p>Nigdy nie braknie drewna na wieczorne ognisko i ciepło w kominku.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opinie" class="opinie">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Głosy gości</span>
+      <h2 class="tytul">Opinie</h2>
+      <div class="ocena-duza">
+        <div>
+          <div class="liczba">5,0</div>
+          <div class="gwiazdki">★★★★★</div>
+        </div>
+        <small>Na podstawie 64 recenzji na Airbnb oraz 11 ocen na AlohaCamp. Obiekt należy do 10% najwyżej ocenianych domów na Airbnb.</small>
+      </div>
+      <div class="opinie-grid">
+        <div class="opinia">
+          <div class="autor">Daria</div>
+          <div class="data">AlohaCamp · prawie 2 lata temu</div>
+          <p>To był niesamowity czas w Leonówce. Kontakt z Panią Martyną na wielki plus, odpisuje sprawnie i we wszystkim jest pomocna. W domku wszystko było, miejsce wyposażone we wszystkie potrzebne sprzęty. Na powitanie czekała pyszna chałka! Drzewo do kominka pod dostatkiem. Rano przyszły nawet sarenki. Sauna i balia działały bez zarzutu — nie da się opisać tego relaksu.</p>
+        </div>
+        <div class="opinia">
+          <div class="autor">Anastasiia</div>
+          <div class="data">AlohaCamp · około 2 lata temu</div>
+          <p>Miałem absolutnie wspaniały pobyt w tym przytulnym wiejskim domu! Miejsce miało wszystko, czego potrzeba do wygodnego i relaksującego wypoczynku. Atmosfera była ciepła i zachęcająca. Gospodarze byli niezwykle przyjaźni i uważni. Gorąco polecam to urocze miejsce każdemu, kto szuka spokojnej ucieczki.</p>
+        </div>
+        <div class="opinia">
+          <div class="autor">Goście Airbnb</div>
+          <div class="data">wyróżnione przez gospodarza</div>
+          <p>Goście podkreślają, że Martyna bardzo serdecznie ich wita, a po przyjeździe czeka na nich domowy chleb i dżem. Wyróżnienie: prywatne jacuzzi i sauna na miejscu, dostępne przez cały rok.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lokalizacja" class="section-alt">
+  <div class="container">
+    <div class="reveal center">
+      <span class="eyebrow">Mazowsze · nad Wkrą</span>
+      <h2 class="tytul center">Lokalizacja i okolica</h2>
+      <p class="podtytul center">Adres: 47, Pruszkowo, Mazowsze — godzina drogi od Warszawy w kierunku Gdańska, kilka set metrów od rzeki Wkra.</p>
+    </div>
+    <div class="okolica-lista reveal">
+      <div class="okolic-item">
+        <h4>🌲 Kampinoski Park Narodowy</h4>
+        <p>Rozległy park z lasami, łąkami i szlakami pieszymi — idealny na wycieczki rowerowe i spacery.</p>
+      </div>
+      <div class="okolic-item">
+        <h4>🦌 Rezerwat Łosiowe Błota</h4>
+        <p>Unikalny obszar bagienny, gdzie można obserwować rzadkie gatunki ptaków i roślin.</p>
+      </div>
+      <div class="okolic-item">
+        <h4>⛵ Jezioro Zegrzyńskie</h4>
+        <p>Popularne miejsce na żeglowanie, kąpiele i relaks nad wodą.</p>
+      </div>
+      <div class="okolic-item">
+        <h4>🌳 Puszcza Biała</h4>
+        <p>Malowniczy kompleks leśny z bogatą fauną i florą — dla miłośników natury i spokoju.</p>
+      </div>
+      <div class="okolic-item">
+        <h4>🏰 Pałac w Jabłonnie</h4>
+        <p>Zabytkowa rezydencja z XVIII wieku otoczona pięknym parkiem, miejsce wydarzeń kulturalnych.</p>
+      </div>
+      <div class="okolic-item">
+        <h4>⚔️ Muzeum Kampanii Wrześniowej w Modlinie</h4>
+        <p>Muzeum poświęcone historii II wojny światowej i obronie Warszawy.</p>
+      </div>
+      <div class="okolic-item">
+        <h4>🏯 Zamek w Ciechanowie</h4>
+        <p>Średniowieczna warownia z muzeum, która przenosi w czasy rycerzy i legend.</p>
+      </div>
+      <div class="okolic-item">
+        <h4>⛪ Kościół św. Stanisława w Sochocinie</h4>
+        <p>Zabytkowa świątynia z ciekawą architekturą i bogatą historią.</p>
+      </div>
+    </div>
+
+    <div class="info-grid reveal">
+      <div class="info-box">
+        <h3>🚗 Dojazd samochodem</h3>
+        <ul>
+          <li>Adres: 47, Pruszkowo, Mazowsze</li>
+          <li>Godzina drogi od Warszawy (kierunek Gdańsk)</li>
+          <li>Bezpłatny parking na miejscu</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>🚌 Transport publiczny</h3>
+        <ul>
+          <li>Autobus: Płońsk (13 km)</li>
+          <li>Pociąg: stacja Wkra (7 km)</li>
+          <li>Odbiór z dworca bezpłatny</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>🕐 Zameldowanie</h3>
+        <ul>
+          <li>Przyjazd: 16:00 – 22:00</li>
+          <li>Wyjazd: 11:00 – 12:00</li>
+          <li>Możliwość przyspieszenia / opóźnienia</li>
+          <li>Cisza nocna: 22:00 – 06:00</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3>📋 Zasady pobytu</h3>
+        <ul>
+          <li>Maks. 6 osób w rezerwacji</li>
+          <li>Maks. 2 zwierzaki</li>
+          <li>Kameralna impreza — tak</li>
+          <li>Palenie we wnętrzach — nie</li>
+          <li>Bezpłatne anulowanie do 14 dni przed przyjazdem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rezerwacja" class="cta-section">
+  <div class="cta reveal">
+    <span class="eyebrow" style="color:var(--copper-light)">Twój czas na reset</span>
+    <h2>Zarezerwuj swój pobyt w Leonówce</h2>
+    <p>Jedni goście byli tu już 5 razy. Czas na Ciebie. Wybierz platformę i zarezerwuj termin.</p>
+    <a href="https://www.airbnb.pl/rooms/897011916565703026" target="_blank" rel="noopener" class="btn btn-light">Airbnb</a>
+    <a href="https://alohacamp.com/pl/property/leonowka-2949" target="_blank" rel="noopener" class="btn btn-light">AlohaCamp</a>
+    <a href="https://slowhop.com/pl/miejsca/6262-leonowka.html" target="_blank" rel="noopener" class="btn btn-light">Slowhop</a>
+    <p class="cta-note">Gospodarz: Martyna · Superhost Airbnb · Na AlohaCamp od 3 czerwca 2024</p>
+  </div>
+</section>
+
+<footer>
+  <div class="logo-f">Leonówka</div>
+  <div class="tagline-f">Domek nad Wkrą · Mazowsze</div>
+  <div class="links">
+    <a href="https://www.facebook.com/LeonowkaChatka/" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://alohacamp.com/pl/property/leonowka-2949" target="_blank" rel="noopener">AlohaCamp</a>
+    <a href="https://slowhop.com/pl/miejsca/6262-leonowka.html" target="_blank" rel="noopener">Slowhop</a>
+    <a href="https://www.airbnb.pl/rooms/897011916565703026" target="_blank" rel="noopener">Airbnb</a>
+  </div>
+  <p class="copy">Strona informacyjna zbudowana na podstawie publicznych ofert. Wszystkie prawa do treści i zdjęć należą do właścicieli serwisów.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="zamknijLightbox(event)">
+  <span class="zamknij" onclick="zamknijLightbox(event)">&times;</span>
+  <img id="lightbox-img" src="" alt="Zdjęcie Leonówki">
+</div>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 60) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+
+  document.querySelectorAll('#menu a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open'));
+  });
+
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+  function otworzLightbox(el){
+    const bg = el.style.backgroundImage;
+    if(bg && bg !== '' && bg !== 'none'){
+      const url = bg.slice(5,-2);
+      if(url && !url.includes('TU_WSTAW')){
+        document.getElementById('lightbox-img').src = url;
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+  }
+  function zamknijLightbox(e){
+    if(e.target.id === 'lightbox' || e.target.classList.contains('zamknij')){
+      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('lightbox-img').src = '';
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape'){
+      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('lightbox-img').src = '';
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+</body>
+</html>
